@@ -4,7 +4,7 @@ namespace Exercicio10 {
     class Program {
         static void Main(string[] args) {
             try {
-                Console.Write("Digite a ordem da matriz: ");
+                Console.Write("Digite a ordem da matriz. OBS: SEPARADO POR ESPAÇOS, EX: 4 5......:  ");
                 string[] ordem = Console.ReadLine().Split(' ');
                 int linhas = int.Parse(ordem[0]);
                 int colunas = int.Parse(ordem[1]);
@@ -29,7 +29,7 @@ namespace Exercicio10 {
                     }
                 }
                 Console.WriteLine();
-                Console.Write("digite um valor pra procurar os sentindos: ");
+                Console.Write("Digite um valor da matriz: ");
                 int s = int.Parse(Console.ReadLine());
 
                 Console.WriteLine();
@@ -46,13 +46,13 @@ namespace Exercicio10 {
                         if (s == matrix[i, j]) {
                             Console.WriteLine();
                             Console.WriteLine($"Posição: [{i} , {j}]");
-                            if (j + 1 <= colunas)
+                            if (j + 1 < colunas)
                                 Console.WriteLine("Direita: " + matrix[i, j + 1]);
-                            if (j - 1 <= colunas)
+                            if (j - 1 < colunas && j - 1 >= 0)
                                 Console.WriteLine("Esquerda: " + matrix[i, j - 1]);
-                            if (i - 1 <= linhas)
-                                Console.WriteLine("Cima: " + matrix[i + 1, j]);
-                            if (i + 1 <= linhas)
+                            if (i - 1 < linhas && i - 1 >= 0)
+                                Console.WriteLine("Cima: " + matrix[i - 1, j]);
+                            if (i + 1 < linhas)
                                 Console.WriteLine("Baixo: " + matrix[i + 1, j]);
                         }
                     }
